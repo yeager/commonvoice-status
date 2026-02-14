@@ -87,3 +87,11 @@ msgstr ""
 
 msgid "Sorted by speakers"
 msgstr ""
+
+#: desktop file
+msgid "View Mozilla Common Voice recording statistics"
+msgstr ""
+
+#: desktop file
+msgid "common voice;mozilla;speech;statistics;"
+msgstr ""
