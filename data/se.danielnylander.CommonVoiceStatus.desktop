@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Common Voice Status
+Comment=View Mozilla Common Voice recording statistics
+Exec=commonvoice-status
+Icon=se.danielnylander.CommonVoiceStatus
+Terminal=false
+Type=Application
+Categories=Utility;Audio;
+Keywords=common voice;mozilla;speech;statistics;

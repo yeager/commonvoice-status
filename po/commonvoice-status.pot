@@ -1,0 +1,89 @@
+# Common Voice Status translation template.
+# Copyright (C) 2025 Daniel Nylander
+# This file is distributed under the same license as the commonvoice-status package.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: commonvoice-status 0.1.0\n"
+"Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
+"POT-Creation-Date: 2025-02-14 12:00+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Common Voice Status"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Most validated hours"
+msgstr ""
+
+msgid "Most recorded hours"
+msgstr ""
+
+msgid "Most speakers"
+msgstr ""
+
+msgid "Loading statistics…"
+msgstr ""
+
+msgid "Failed to load data"
+msgstr ""
+
+msgid "Recorded hours"
+msgstr ""
+
+msgid "Validated hours"
+msgstr ""
+
+msgid "Invalidated hours"
+msgstr ""
+
+msgid "Speakers"
+msgstr ""
+
+msgid "Sentences"
+msgstr ""
+
+msgid "Locale"
+msgstr ""
+
+msgid "Contribute recordings"
+msgstr ""
+
+msgid "Gap Analysis"
+msgstr ""
+
+msgid "Next milestone: {} hours"
+msgstr ""
+
+msgid "{:.0f} hours remaining ({:.1f}% complete)"
+msgstr ""
+
+msgid "Nordic Comparison"
+msgstr ""
+
+msgid "{:.0f}h validated · {:.0f}h recorded · {:,} speakers"
+msgstr ""
+
+msgid "No Nordic languages found"
+msgstr ""
+
+msgid "All Languages"
+msgstr ""
+
+msgid "Sorted by validated hours"
+msgstr ""
+
+msgid "Sorted by recorded hours"
+msgstr ""
+
+msgid "Sorted by speakers"
+msgstr ""
