@@ -1,23 +1,27 @@
-# Swedish translation for commonvoice-status.
+# Common Voice Status translation template.
 # Copyright (C) 2025 Daniel Nylander
 # This file is distributed under the same license as the commonvoice-status package.
-# Daniel Nylander <daniel@danielnylander.se>, 2025.
-#
+# 
+# Translators:
+# Daniel Nylander <po@danielnylander.se>, 2026
+# 
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: commonvoice-status 0.1.0\n"
 "Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
 "POT-Creation-Date: 2025-02-14 12:00+0100\n"
-"PO-Revision-Date: 2025-02-14 12:00+0100\n"
-"Last-Translator: Daniel Nylander <daniel@danielnylander.se>\n"
-"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
-"Language: sv\n"
+"PO-Revision-Date: 2026-02-14 17:11+0000\n"
+"Last-Translator: Daniel Nylander <po@danielnylander.se>, 2026\n"
+"Language-Team: Swedish (https://app.transifex.com/danielnylander/teams/304776/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Common Voice Status"
-msgstr "Common Voice-status"
+msgstr "Status för Common Voice"
 
 msgid "Refresh"
 msgstr "Uppdatera"
@@ -35,7 +39,7 @@ msgid "Loading statistics…"
 msgstr "Läser in statistik…"
 
 msgid "Failed to load data"
-msgstr "Kunde inte läsa in data"
+msgstr "Misslyckades med att läsa in data"
 
 msgid "Recorded hours"
 msgstr "Inspelade timmar"
@@ -44,7 +48,7 @@ msgid "Validated hours"
 msgstr "Validerade timmar"
 
 msgid "Invalidated hours"
-msgstr "Ogiltigförklarade timmar"
+msgstr "Ogiltiga timmar"
 
 msgid "Speakers"
 msgstr "Talare"
@@ -53,19 +57,19 @@ msgid "Sentences"
 msgstr "Meningar"
 
 msgid "Locale"
-msgstr "Språkkod"
+msgstr "Locale"
 
 msgid "Contribute recordings"
 msgstr "Bidra med inspelningar"
 
 msgid "Gap Analysis"
-msgstr "Bristanalys"
+msgstr "Gapanalys"
 
 msgid "Next milestone: {} hours"
 msgstr "Nästa milstolpe: {} timmar"
 
 msgid "{:.0f} hours remaining ({:.1f}% complete)"
-msgstr "{:.0f} timmar kvar ({:.1f}% klart)"
+msgstr "{:.0f} timmar återstår ({:.1f}% färdigt)"
 
 msgid "Nordic Comparison"
 msgstr "Nordisk jämförelse"
@@ -87,3 +91,11 @@ msgstr "Sorterat efter inspelade timmar"
 
 msgid "Sorted by speakers"
 msgstr "Sorterat efter talare"
+
+#: desktop file
+msgid "View Mozilla Common Voice recording statistics"
+msgstr "Visa statistik för Mozilla Common Voice-inspelningar"
+
+#: desktop file
+msgid "common voice;mozilla;speech;statistics;"
+msgstr "common voice;mozilla;tal;statistik;"
