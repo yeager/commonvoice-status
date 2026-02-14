@@ -55,3 +55,7 @@ GPL-3.0-or-later — see [LICENSE](LICENSE).
 ## Author
 
 Daniel Nylander <daniel@danielnylander.se>
+
+## Translation
+
+Translations are managed via [Transifex](https://app.transifex.com/danielnylander/commonvoice-status/). See [po/README.md](po/README.md) for details.
