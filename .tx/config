@@ -1,7 +1,7 @@
 [main]
 host = https://app.transifex.com
 
-[o:linguaedit:p:commonvoice-status:r:commonvoice-status-pot]
+[o:danielnylander:p:commonvoice-status:r:commonvoice-status-pot]
 file_filter = po/<lang>.po
 source_file = po/commonvoice-status.pot
 source_lang = en
