@@ -74,6 +74,8 @@ class CommonVoiceStatusApp(Adw.Application):
             application_id="se.danielnylander.CommonVoiceStatus",
             flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
         )
+        if HAS_NOTIFY:
+            _Notify.init("commonvoice-status")
         about_action = Gio.SimpleAction.new("about", None)
         about_action.connect("activate", self._on_about)
         self.add_action(about_action)
@@ -82,6 +84,10 @@ class CommonVoiceStatusApp(Adw.Application):
         export_action.connect("activate", lambda *_: self.props.active_window and self.props.active_window._on_export_clicked())
         self.add_action(export_action)
         self.set_accels_for_action("app.export", ["<Control>e"])
+
+        notif_action = Gio.SimpleAction.new("toggle-notifications", None)
+        notif_action.connect("activate", lambda *_: _save_notify_config({"enabled": not _load_notify_config().get("enabled", False)}))
+        self.add_action(notif_action)
 
     def do_startup(self):
         Adw.Application.do_startup(self)
@@ -131,6 +137,8 @@ class CommonVoiceStatusApp(Adw.Application):
             translator_credits="Daniel Nylander <daniel@danielnylander.se>",
             comments=_("View Mozilla Common Voice statistics per language"),
         )
+        about.set_debug_info(_get_system_info())
+        about.set_debug_info_filename("commonvoice-status-debug.txt")
         about.present()
 
 
