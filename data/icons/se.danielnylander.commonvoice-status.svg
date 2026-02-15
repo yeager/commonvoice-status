@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#26a269"/>
+      <stop offset="100%" stop-color="#1a7a4c"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="20" fill="url(#bg)"/>
+  <!-- Microphone -->
+  <rect x="52" y="24" width="24" height="40" rx="12" fill="white" opacity="0.95"/>
+  <path d="M40,56 a24,24 0 0,0 48,0" fill="none" stroke="white" stroke-width="3.5" opacity="0.8"/>
+  <line x1="64" y1="80" x2="64" y2="92" stroke="white" stroke-width="3.5" opacity="0.8"/>
+  <line x1="50" y1="92" x2="78" y2="92" stroke="white" stroke-width="3.5" stroke-linecap="round" opacity="0.8"/>
+  <!-- Sound waves -->
+  <path d="M92,36 a16,20 0 0,1 0,40" fill="none" stroke="#f6d32d" stroke-width="2.5" opacity="0.7"/>
+  <path d="M100,28 a24,30 0 0,1 0,56" fill="none" stroke="#f6d32d" stroke-width="2" opacity="0.5"/>
+  <!-- Progress bar -->
+  <rect x="24" y="106" width="80" height="8" rx="4" fill="white" opacity="0.25"/>
+  <rect x="24" y="106" width="56" height="8" rx="4" fill="#57e389" opacity="0.9"/>
+  <text x="64" y="113" font-family="sans-serif" font-size="6" fill="white" text-anchor="middle" font-weight="bold">70%</text>
+</svg>
