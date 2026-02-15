@@ -15,7 +15,6 @@ from gi.repository import Adw, Gtk, GLib, Gio, Pango, Gdk
 from .api import fetch_languages, next_milestone
 from .main import _send_notification
 from .i18n import _
-from datetime import datetime as _dt_now
 
 
 # Nordic + common comparison languages
