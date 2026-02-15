@@ -8,7 +8,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 
-from gi.repository import Adw, Gtk, GLib, Gio, Pango
+from gi.repository import Adw, Gtk, GLib, Gio, Pango, Gdk
 
 from .api import fetch_languages, next_milestone
 from .i18n import _
@@ -17,6 +17,36 @@ from .i18n import _
 # Nordic + common comparison languages
 DEFAULT_COMPARE = ["sv", "no", "da", "fi", "nb-NO", "nn-NO"]
 DEFAULT_LOCALE = "sv-SE"
+
+# Milestones for validated hours coloring
+_CV_MILESTONES = [10, 50, 100, 500, 1000, 5000]
+
+
+def _setup_heatmap_css():
+    css = b"""
+    .heatmap-green { background-color: #26a269; color: white; border-radius: 8px; }
+    .heatmap-yellow { background-color: #e5a50a; color: white; border-radius: 8px; }
+    .heatmap-orange { background-color: #ff7800; color: white; border-radius: 8px; }
+    .heatmap-red { background-color: #c01c28; color: white; border-radius: 8px; }
+    .heatmap-gray { background-color: #77767b; color: white; border-radius: 8px; }
+    """
+    provider = Gtk.CssProvider()
+    provider.load_from_data(css)
+    Gtk.StyleContext.add_provider_for_display(
+        Gdk.Display.get_default(), provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
+
+def _cv_heatmap_class(validated_hours):
+    """Color based on validated hours thresholds."""
+    if validated_hours >= 500:
+        return "heatmap-green"
+    elif validated_hours >= 100:
+        return "heatmap-yellow"
+    elif validated_hours >= 10:
+        return "heatmap-orange"
+    elif validated_hours > 0:
+        return "heatmap-red"
+    return "heatmap-gray"
 
 SORT_RECORDED = "recorded"
 SORT_VALIDATED = "validated"
@@ -33,6 +63,7 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         self.selected_locale = DEFAULT_LOCALE
         self.sort_mode = SORT_VALIDATED
 
+        _setup_heatmap_css()
         self._build_ui()
         self._load_data()
 
@@ -222,7 +253,11 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         self.content_box.append(group)
 
     def _add_comparison_card(self):
-        group = Adw.PreferencesGroup(title=_("Nordic Comparison"))
+        # Heatmap grid for Nordic comparison
+        label = Gtk.Label(label=_("Nordic Comparison"), xalign=0)
+        label.add_css_class("title-2")
+        label.set_margin_top(8)
+        self.content_box.append(label)
 
         compare_locales = DEFAULT_COMPARE
         found = []
@@ -233,45 +268,115 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
 
         found.sort(key=lambda l: l.get("validatedHours", 0), reverse=True)
 
-        for lang in found:
-            name = lang.get("english_name", lang.get("locale", "?"))
-            validated = lang.get("validatedHours", 0)
-            recorded = lang.get("recordedHours", 0)
-            speakers = lang.get("speakersCount", 0)
+        if found:
+            flow = Gtk.FlowBox()
+            flow.set_selection_mode(Gtk.SelectionMode.NONE)
+            flow.set_homogeneous(True)
+            flow.set_min_children_per_line(2)
+            flow.set_max_children_per_line(6)
+            flow.set_column_spacing(6)
+            flow.set_row_spacing(6)
+            flow.set_margin_top(8)
+            flow.set_margin_bottom(8)
 
-            row = Adw.ActionRow(
-                title=f"{name} ({lang.get('locale', '?')})",
-                subtitle=_("{:.0f}h validated · {:.0f}h recorded · {:,} speakers").format(validated, recorded, speakers),
-            )
-            group.add(row)
+            for lang in found:
+                name = lang.get("english_name", lang.get("locale", "?"))
+                validated = lang.get("validatedHours", 0)
+                recorded = lang.get("recordedHours", 0)
+                speakers = lang.get("speakersCount", 0)
 
-        if not found:
-            row = Adw.ActionRow(title=_("No Nordic languages found"))
-            group.add(row)
+                box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=2)
+                box.set_size_request(150, 80)
+                box.add_css_class(_cv_heatmap_class(validated))
+                box.set_margin_start(4)
+                box.set_margin_end(4)
+                box.set_margin_top(4)
+                box.set_margin_bottom(4)
 
-        self.content_box.append(group)
+                name_lbl = Gtk.Label(label=name)
+                name_lbl.set_ellipsize(Pango.EllipsizeMode.END)
+                name_lbl.set_margin_top(8)
+                name_lbl.set_margin_start(6)
+                name_lbl.set_margin_end(6)
+                box.append(name_lbl)
+
+                val_lbl = Gtk.Label(label=f"{validated:.0f}h validated")
+                box.append(val_lbl)
+
+                spk_lbl = Gtk.Label(label=f"{speakers:,} speakers")
+                spk_lbl.set_margin_bottom(6)
+                box.append(spk_lbl)
+
+                box.set_tooltip_text(f"{name}: {recorded:.0f}h recorded, {validated:.0f}h validated")
+                locale_code = lang.get("locale", "en")
+                gesture = Gtk.GestureClick()
+                gesture.connect("released", lambda g, n, x, y, lc=locale_code: webbrowser.open(f"https://commonvoice.mozilla.org/{lc}"))
+                box.add_controller(gesture)
+                box.set_cursor(Gdk.Cursor.new_from_name("pointer"))
+
+                flow.append(box)
+
+            self.content_box.append(flow)
+        else:
+            no_data = Gtk.Label(label=_("No Nordic languages found"))
+            no_data.add_css_class("dim-label")
+            self.content_box.append(no_data)
 
     def _add_ranking(self):
-        group = Adw.PreferencesGroup(title=_("All Languages"))
-        group.set_description(
-            {
-                SORT_VALIDATED: _("Sorted by validated hours"),
-                SORT_RECORDED: _("Sorted by recorded hours"),
-                SORT_SPEAKERS: _("Sorted by speakers"),
-            }.get(self.sort_mode, "")
-        )
+        sort_desc = {
+            SORT_VALIDATED: _("Sorted by validated hours"),
+            SORT_RECORDED: _("Sorted by recorded hours"),
+            SORT_SPEAKERS: _("Sorted by speakers"),
+        }.get(self.sort_mode, "")
+
+        label = Gtk.Label(label=_("All Languages") + f" — {sort_desc}", xalign=0)
+        label.add_css_class("title-2")
+        label.set_margin_top(12)
+        self.content_box.append(label)
+
+        flow = Gtk.FlowBox()
+        flow.set_selection_mode(Gtk.SelectionMode.NONE)
+        flow.set_homogeneous(True)
+        flow.set_min_children_per_line(3)
+        flow.set_max_children_per_line(8)
+        flow.set_column_spacing(4)
+        flow.set_row_spacing(4)
+        flow.set_margin_top(8)
+        flow.set_margin_bottom(8)
 
         sorted_langs = self._sorted_languages()
         for i, lang in enumerate(sorted_langs[:50], 1):
             name = lang.get("english_name", lang.get("locale", "?"))
             validated = lang.get("validatedHours", 0)
             recorded = lang.get("recordedHours", 0)
-            speakers = lang.get("speakersCount", 0)
 
-            row = Adw.ActionRow(
-                title=f"#{i}  {name}",
-                subtitle=_("{:.0f}h validated · {:.0f}h recorded · {:,} speakers").format(validated, recorded, speakers),
-            )
-            group.add(row)
+            box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=1)
+            box.set_size_request(130, 60)
+            box.add_css_class(_cv_heatmap_class(validated))
+            box.set_margin_start(3)
+            box.set_margin_end(3)
+            box.set_margin_top(3)
+            box.set_margin_bottom(3)
 
-        self.content_box.append(group)
+            name_lbl = Gtk.Label(label=f"#{i} {name}")
+            name_lbl.set_ellipsize(Pango.EllipsizeMode.END)
+            name_lbl.set_max_width_chars(16)
+            name_lbl.set_margin_top(6)
+            name_lbl.set_margin_start(4)
+            name_lbl.set_margin_end(4)
+            box.append(name_lbl)
+
+            val_lbl = Gtk.Label(label=f"{validated:.0f}h")
+            val_lbl.set_margin_bottom(6)
+            box.append(val_lbl)
+
+            box.set_tooltip_text(f"{name}: {validated:.0f}h validated, {recorded:.0f}h recorded")
+            locale_code = lang.get("locale", "en")
+            gesture = Gtk.GestureClick()
+            gesture.connect("released", lambda g, n, x, y, lc=locale_code: webbrowser.open(f"https://commonvoice.mozilla.org/{lc}"))
+            box.add_controller(gesture)
+            box.set_cursor(Gdk.Cursor.new_from_name("pointer"))
+
+            flow.append(box)
+
+        self.content_box.append(flow)
