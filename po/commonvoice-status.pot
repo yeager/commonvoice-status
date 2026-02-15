@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: commonvoice-status\n"
 "Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
-"POT-Creation-Date: 2026-02-15 10:08+0100\n"
+"POT-Creation-Date: 2026-02-15 10:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,112 +17,108 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/commonvoice_status/window.py:29 src/commonvoice_status/main.py:38
+#: src/commonvoice_status/window.py:59 src/commonvoice_status/main.py:38
 msgid "Common Voice Status"
 msgstr ""
 
-#: src/commonvoice_status/window.py:44
+#: src/commonvoice_status/window.py:75
 msgid "Refresh"
 msgstr ""
 
-#: src/commonvoice_status/window.py:50
+#: src/commonvoice_status/window.py:81
 msgid "Most validated hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:51
+#: src/commonvoice_status/window.py:82
 msgid "Most recorded hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:52
+#: src/commonvoice_status/window.py:83
 msgid "Most speakers"
 msgstr ""
 
-#: src/commonvoice_status/window.py:54
+#: src/commonvoice_status/window.py:85
 msgid "Sort"
 msgstr ""
 
-#: src/commonvoice_status/window.py:60
+#: src/commonvoice_status/window.py:91
 msgid "About"
 msgstr ""
 
-#: src/commonvoice_status/window.py:83
+#: src/commonvoice_status/window.py:114
 msgid "Loading statistics…"
 msgstr ""
 
-#: src/commonvoice_status/window.py:89
+#: src/commonvoice_status/window.py:120
 msgid "Failed to load data"
 msgstr ""
 
-#: src/commonvoice_status/window.py:178
+#: src/commonvoice_status/window.py:209
 msgid "Recorded hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:179
+#: src/commonvoice_status/window.py:210
 msgid "Validated hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:180
+#: src/commonvoice_status/window.py:211
 msgid "Invalidated hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:181
+#: src/commonvoice_status/window.py:212
 msgid "Speakers"
 msgstr ""
 
-#: src/commonvoice_status/window.py:182
+#: src/commonvoice_status/window.py:213
 msgid "Sentences"
 msgstr ""
 
-#: src/commonvoice_status/window.py:183
+#: src/commonvoice_status/window.py:214
 msgid "Locale"
 msgstr ""
 
-#: src/commonvoice_status/window.py:192
+#: src/commonvoice_status/window.py:223
 msgid "Contribute recordings"
 msgstr ""
 
-#: src/commonvoice_status/window.py:208
+#: src/commonvoice_status/window.py:239
 msgid "Gap Analysis"
 msgstr ""
 
-#: src/commonvoice_status/window.py:212
+#: src/commonvoice_status/window.py:243
 #, python-brace-format
 msgid "Next milestone: {} hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:213
+#: src/commonvoice_status/window.py:244
 #, python-brace-format
 msgid "{:.0f} hours remaining ({:.1f}% complete)"
 msgstr ""
 
-#: src/commonvoice_status/window.py:225
+#: src/commonvoice_status/window.py:257
 msgid "Nordic Comparison"
 msgstr ""
 
-#: src/commonvoice_status/window.py:244 src/commonvoice_status/window.py:273
-msgid "{:.0f}h validated · {:.0f}h recorded · {:,} speakers"
-msgstr ""
-
-#: src/commonvoice_status/window.py:249
+#: src/commonvoice_status/window.py:321
 msgid "No Nordic languages found"
 msgstr ""
 
-#: src/commonvoice_status/window.py:255
-msgid "All Languages"
-msgstr ""
-
-#: src/commonvoice_status/window.py:258
+#: src/commonvoice_status/window.py:327
 msgid "Sorted by validated hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:259
+#: src/commonvoice_status/window.py:328
 msgid "Sorted by recorded hours"
 msgstr ""
 
-#: src/commonvoice_status/window.py:260
+#: src/commonvoice_status/window.py:329
 msgid "Sorted by speakers"
 msgstr ""
 
-#: src/commonvoice_status/main.py:48
+#: src/commonvoice_status/window.py:332
+msgid "All Languages"
+msgstr ""
+
+#: src/commonvoice_status/main.py:49
 msgid "View Mozilla Common Voice statistics per language"
 msgstr ""
