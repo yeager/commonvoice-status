@@ -44,6 +44,7 @@ class CommonVoiceStatusApp(Adw.Application):
             license_type=Gtk.License.GPL_3_0,
             website="https://github.com/yeager/commonvoice-status",
             issue_url="https://github.com/yeager/commonvoice-status/issues",
+            translate_url="https://app.transifex.com/danielnylander/commonvoice-status/",
             translator_credits="Daniel Nylander <daniel@danielnylander.se>",
             comments=_("View Mozilla Common Voice statistics per language"),
         )
