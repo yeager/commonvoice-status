@@ -1,12 +1,10 @@
 [Desktop Entry]
 Name=Common Voice Status
-Name[sv]=Common Voice-status
+Name[sv]=Status för Common Voice
 Comment=View Mozilla Common Voice recording statistics
-Comment[sv]=Visa Mozilla Common Voice inspelningsstatistik
 Exec=commonvoice-status
 Icon=se.danielnylander.CommonVoiceStatus
 Terminal=false
 Type=Application
 Categories=Utility;Audio;
 Keywords=common voice;mozilla;speech;statistics;
-Keywords[sv]=common voice;mozilla;tal;statistik;
