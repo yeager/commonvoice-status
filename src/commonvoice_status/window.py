@@ -1,5 +1,7 @@
 """Main application window."""
 
+import csv
+import json
 import threading
 import webbrowser
 
@@ -76,6 +78,11 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         refresh_btn = Gtk.Button(icon_name="view-refresh-symbolic", tooltip_text=_("Refresh"))
         refresh_btn.connect("clicked", self._on_refresh)
         header.pack_start(refresh_btn)
+
+        # Export button
+        export_btn = Gtk.Button(icon_name="document-save-symbolic", tooltip_text=_("Export data"))
+        export_btn.connect("clicked", self._on_export_clicked)
+        header.pack_end(export_btn)
 
         # Sort menu
         sort_menu = Gio.Menu()
@@ -216,6 +223,47 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
 
         # Full ranking
         self._add_ranking()
+
+    def _on_export_clicked(self, *_args):
+        dialog = Adw.MessageDialog(transient_for=self,
+                                   heading=_("Export Data"),
+                                   body=_("Choose export format:"))
+        dialog.add_response("cancel", _("Cancel"))
+        dialog.add_response("csv", "CSV")
+        dialog.add_response("json", "JSON")
+        dialog.set_response_appearance("csv", Adw.ResponseAppearance.SUGGESTED)
+        dialog.connect("response", self._on_export_format_chosen)
+        dialog.present()
+
+    def _on_export_format_chosen(self, dialog, response):
+        if response not in ("csv", "json"):
+            return
+        self._export_fmt = response
+        fd = Gtk.FileDialog()
+        fd.set_initial_name(f"commonvoice-stats.{response}")
+        fd.save(self, None, self._on_export_save)
+
+    def _on_export_save(self, dialog, result):
+        try:
+            path = dialog.save_finish(result).get_path()
+        except Exception:
+            return
+        data = [{"locale": l.get("locale", ""), "name": l.get("english_name", ""),
+                 "recorded_hours": l.get("recordedHours", 0),
+                 "validated_hours": l.get("validatedHours", 0),
+                 "invalidated_hours": l.get("invalidatedHours", 0),
+                 "speakers": l.get("speakersCount", 0)}
+                for l in self.languages]
+        if not data:
+            return
+        if self._export_fmt == "csv":
+            with open(path, "w", newline="", encoding="utf-8") as f:
+                w = csv.DictWriter(f, fieldnames=data[0].keys())
+                w.writeheader()
+                w.writerows(data)
+        else:
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
 
     def _add_featured_card(self, lang):
         group = Adw.PreferencesGroup(title=lang.get("english_name", lang.get("locale", "?")))

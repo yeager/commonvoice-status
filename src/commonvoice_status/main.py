@@ -78,6 +78,11 @@ class CommonVoiceStatusApp(Adw.Application):
         about_action.connect("activate", self._on_about)
         self.add_action(about_action)
 
+        export_action = Gio.SimpleAction.new("export", None)
+        export_action.connect("activate", lambda *_: self.props.active_window and self.props.active_window._on_export_clicked())
+        self.add_action(export_action)
+        self.set_accels_for_action("app.export", ["<Control>e"])
+
     def do_startup(self):
         Adw.Application.do_startup(self)
         self.set_accels_for_action("app.quit", ["<Control>q"])
