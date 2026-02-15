@@ -54,6 +54,14 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         sort_btn = Gtk.MenuButton(icon_name="view-sort-descending-symbolic", menu_model=sort_menu, tooltip_text=_("Sort"))
         header.pack_end(sort_btn)
 
+        # App menu
+        app_menu = Gio.Menu()
+        about_section = Gio.Menu()
+        about_section.append(_("About"), "app.about")
+        app_menu.append_section(None, about_section)
+        menu_btn = Gtk.MenuButton(icon_name="open-menu-symbolic", menu_model=app_menu)
+        header.pack_end(menu_btn)
+
         sort_action = Gio.SimpleAction.new("sort", GLib.VariantType.new("s"))
         sort_action.connect("activate", self._on_sort_changed)
         self.add_action(sort_action)
