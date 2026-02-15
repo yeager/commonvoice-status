@@ -1,2 +1,2 @@
 """Common Voice Status — View Mozilla Common Voice recording statistics per language."""
-__version__ = "0.1.3"
+__version__ = "0.1.4"

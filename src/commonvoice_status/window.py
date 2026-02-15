@@ -12,6 +12,7 @@ from gi.repository import Adw, Gtk, GLib, Gio, Pango, Gdk
 
 from .api import fetch_languages, next_milestone
 from .i18n import _
+from datetime import datetime as _dt_now
 
 
 # Nordic + common comparison languages
@@ -85,6 +86,12 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         sort_btn = Gtk.MenuButton(icon_name="view-sort-descending-symbolic", menu_model=sort_menu, tooltip_text=_("Sort"))
         header.pack_end(sort_btn)
 
+        # Theme toggle
+        self._theme_btn = Gtk.Button(icon_name="weather-clear-night-symbolic",
+                                     tooltip_text="Toggle dark/light theme")
+        self._theme_btn.connect("clicked", self._on_theme_toggle)
+        header.pack_end(self._theme_btn)
+
         # App menu
         app_menu = Gio.Menu()
         about_section = Gio.Menu()
@@ -128,6 +135,12 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         self.stack.add_named(scrolled, "content")
 
         main_box.append(self.stack)
+
+        # Status bar
+        self._status_bar = Gtk.Label(label="", halign=Gtk.Align.START,
+                                     margin_start=12, margin_end=12, margin_bottom=4)
+        self._status_bar.add_css_class("dim-label")
+        self._status_bar.add_css_class("caption")
         self.set_content(main_box)
         self.stack.set_visible_child_name("loading")
 
@@ -147,6 +160,8 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
         self.languages = data
         self._populate()
         self.stack.set_visible_child_name("content")
+        self._update_status_bar()
+
 
     def _on_data_error(self, message):
         self.error_status.set_description(message)
@@ -380,3 +395,15 @@ class CommonVoiceStatusWindow(Adw.ApplicationWindow):
             flow.append(box)
 
         self.content_box.append(flow)
+
+    def _on_theme_toggle(self, _btn):
+        sm = Adw.StyleManager.get_default()
+        if sm.get_color_scheme() == Adw.ColorScheme.FORCE_DARK:
+            sm.set_color_scheme(Adw.ColorScheme.FORCE_LIGHT)
+            self._theme_btn.set_icon_name("weather-clear-night-symbolic")
+        else:
+            sm.set_color_scheme(Adw.ColorScheme.FORCE_DARK)
+            self._theme_btn.set_icon_name("weather-clear-symbolic")
+
+    def _update_status_bar(self):
+        self._status_bar.set_text("Last updated: " + _dt_now.now().strftime("%Y-%m-%d %H:%M"))
