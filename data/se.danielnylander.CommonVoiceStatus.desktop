@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Common Voice Status
+Name[sv]=Status för Common Voice
 Comment=View Mozilla Common Voice recording statistics
 Exec=commonvoice-status
 Icon=se.danielnylander.CommonVoiceStatus

@@ -122,3 +122,11 @@ msgstr ""
 #: src/commonvoice_status/main.py:49
 msgid "View Mozilla Common Voice statistics per language"
 msgstr ""
+
+#: commonvoice-status/data/se.danielnylander.CommonVoiceStatus.desktop.in
+msgid "View Mozilla Common Voice recording statistics"
+msgstr ""
+
+#: commonvoice-status/data/se.danielnylander.CommonVoiceStatus.desktop.in
+msgid "common voice;mozilla;speech;statistics;"
+msgstr ""
