@@ -17,6 +17,7 @@ except (ValueError, ImportError):
 
 from gi.repository import Gtk, Adw, Gio
 
+from .notify import _send_notification, _load_notify_config, _save_notify_config
 from .window import CommonVoiceStatusWindow
 from .i18n import init_i18n
 
@@ -31,30 +32,8 @@ from pathlib import Path as _Path
 _NOTIFY_APP = "commonvoice-status"
 
 
-def _notify_config_path():
-    return _Path(GLib.get_user_config_dir()) / _NOTIFY_APP / "notifications.json"
 
 
-def _load_notify_config():
-    try:
-        return _json.loads(_notify_config_path().read_text())
-    except Exception:
-        return {"enabled": False}
-
-
-def _save_notify_config(config):
-    p = _notify_config_path()
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(_json.dumps(config))
-
-
-def _send_notification(summary, body="", icon="dialog-information"):
-    if HAS_NOTIFY and _load_notify_config().get("enabled"):
-        try:
-            n = _Notify.Notification.new(summary, body, icon)
-            n.show()
-        except Exception:
-            pass
 
 
 def _get_system_info():

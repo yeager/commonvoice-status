@@ -13,7 +13,7 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, Gtk, GLib, Gio, Pango, Gdk
 
 from .api import fetch_languages, next_milestone
-from .main import _send_notification
+from .notify import _send_notification
 from .i18n import _
 
 
