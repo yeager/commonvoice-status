@@ -1,5 +1,5 @@
 [main]
-host = https://app.transifex.com
+host = https://www.transifex.com
 
 [o:danielnylander:p:commonvoice-status:r:commonvoice-status-pot]
 file_filter = po/<lang>.po
