@@ -101,8 +101,7 @@ class CommonVoiceStatusApp(Adw.Application):
         win.present()
 
     def _on_about(self, *_args):
-        about = Adw.AboutWindow(
-            transient_for=self.props.active_window,
+        about = Adw.AboutDialog(
             application_name=_("Common Voice Status"),
             application_icon="commonvoice-status",
             version="0.1.1",
@@ -118,7 +117,7 @@ class CommonVoiceStatusApp(Adw.Application):
         )
         about.set_debug_info(_get_system_info())
         about.set_debug_info_filename("commonvoice-status-debug.txt")
-        about.present()
+        about.present(self.props.active_window)
 
 
 def main():
