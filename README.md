@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![Ubuntu L10n](screenshots/main.png)
+![Common Voice Status](screenshots/main.png)
 
 A GTK4/Adwaita application for viewing Mozilla Common Voice recording and validation statistics per language.
 
