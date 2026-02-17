@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Daniel Nylander
-# This file is distributed under the same license as the commonvoice-status package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
@@ -9,9 +9,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: commonvoice-status\n"
-"Report-Msgid-Bugs-To: daniel@danielnylander.se\n"
-"POT-Creation-Date: 2026-02-15 10:57+0100\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-16 17:14+0100\n"
 "PO-Revision-Date: 2026-02-14 17:11+0000\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>, 2026\n"
 "Language-Team: Swedish (https://app.transifex.com/danielnylander/teams/304776/sv/)\n"
@@ -21,108 +21,124 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/commonvoice_status/window.py:59 src/commonvoice_status/main.py:38
+#: src/commonvoice_status/window.py:62 src/commonvoice_status/main.py:105
 msgid "Common Voice Status"
 msgstr "Status för Common Voice"
 
-#: src/commonvoice_status/window.py:75
+#: src/commonvoice_status/window.py:78
 msgid "Refresh"
 msgstr "Uppdatera"
 
-#: src/commonvoice_status/window.py:81
+#: src/commonvoice_status/window.py:83
+msgid "Export data"
+msgstr ""
+
+#: src/commonvoice_status/window.py:89
 msgid "Most validated hours"
 msgstr "Flest validerade timmar"
 
-#: src/commonvoice_status/window.py:82
+#: src/commonvoice_status/window.py:90
 msgid "Most recorded hours"
 msgstr "Flest inspelade timmar"
 
-#: src/commonvoice_status/window.py:83
+#: src/commonvoice_status/window.py:91
 msgid "Most speakers"
 msgstr "Flest talare"
 
-#: src/commonvoice_status/window.py:85
+#: src/commonvoice_status/window.py:93
 msgid "Sort"
 msgstr "Sortera"
 
-#: src/commonvoice_status/window.py:91
+#: src/commonvoice_status/window.py:105
 msgid "About"
 msgstr "Om"
 
-#: src/commonvoice_status/window.py:114
+#: src/commonvoice_status/window.py:128
 msgid "Loading statistics…"
 msgstr "Läser in statistik…"
 
-#: src/commonvoice_status/window.py:120
+#: src/commonvoice_status/window.py:134
 msgid "Failed to load data"
 msgstr "Misslyckades med att läsa in data"
 
-#: src/commonvoice_status/window.py:209
+#: src/commonvoice_status/window.py:229
+msgid "Export Data"
+msgstr ""
+
+#: src/commonvoice_status/window.py:230
+msgid "Choose export format:"
+msgstr ""
+
+#: src/commonvoice_status/window.py:231
+msgid "Cancel"
+msgstr ""
+
+#: src/commonvoice_status/window.py:272
 msgid "Recorded hours"
 msgstr "Inspelade timmar"
 
-#: src/commonvoice_status/window.py:210
+#: src/commonvoice_status/window.py:273
 msgid "Validated hours"
 msgstr "Validerade timmar"
 
-#: src/commonvoice_status/window.py:211
+#: src/commonvoice_status/window.py:274
 msgid "Invalidated hours"
 msgstr "Ogiltiga timmar"
 
-#: src/commonvoice_status/window.py:212
+#: src/commonvoice_status/window.py:275
 msgid "Speakers"
 msgstr "Talare"
 
-#: src/commonvoice_status/window.py:213
+#: src/commonvoice_status/window.py:276
 msgid "Sentences"
 msgstr "Meningar"
 
-#: src/commonvoice_status/window.py:214
+#: src/commonvoice_status/window.py:277
 msgid "Locale"
 msgstr "Locale"
 
-#: src/commonvoice_status/window.py:223
+#: src/commonvoice_status/window.py:286
 msgid "Contribute recordings"
 msgstr "Bidra med inspelningar"
 
-#: src/commonvoice_status/window.py:239
+#: src/commonvoice_status/window.py:302
 msgid "Gap Analysis"
 msgstr "Gapanalys"
 
-#: src/commonvoice_status/window.py:243
+#: src/commonvoice_status/window.py:306
 #, python-brace-format
 msgid "Next milestone: {} hours"
 msgstr "Nästa milstolpe: {} timmar"
 
-#: src/commonvoice_status/window.py:244
+#: src/commonvoice_status/window.py:307
 #, python-brace-format
 msgid "{:.0f} hours remaining ({:.1f}% complete)"
 msgstr "{:.0f} timmar återstår ({:.1f}% färdigt)"
 
-#: src/commonvoice_status/window.py:257
+#: src/commonvoice_status/window.py:320
 msgid "Nordic Comparison"
 msgstr "Nordisk jämförelse"
 
-#: src/commonvoice_status/window.py:321
+#: src/commonvoice_status/window.py:384
 msgid "No Nordic languages found"
 msgstr "Inga nordiska språk hittades"
 
-#: src/commonvoice_status/window.py:327
+#: src/commonvoice_status/window.py:390
 msgid "Sorted by validated hours"
 msgstr "Sorterat efter validerade timmar"
 
-#: src/commonvoice_status/window.py:328
+#: src/commonvoice_status/window.py:391
 msgid "Sorted by recorded hours"
 msgstr "Sorterat efter inspelade timmar"
 
-#: src/commonvoice_status/window.py:329
+#: src/commonvoice_status/window.py:392
 msgid "Sorted by speakers"
 msgstr "Sorterat efter talare"
 
-#: src/commonvoice_status/window.py:332
+#: src/commonvoice_status/window.py:395
 msgid "All Languages"
 msgstr "Alla språk"
 
-#: src/commonvoice_status/main.py:49
+#: src/commonvoice_status/main.py:116
 msgid "View Mozilla Common Voice statistics per language"
 msgstr "Visa statistik för Mozilla Common Voice per språk"
