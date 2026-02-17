@@ -31,7 +31,7 @@ msgstr "Uppdatera"
 
 #: src/commonvoice_status/window.py:83
 msgid "Export data"
-msgstr ""
+msgstr "Exportera data"
 
 #: src/commonvoice_status/window.py:89
 msgid "Most validated hours"
@@ -63,15 +63,15 @@ msgstr "Misslyckades med att läsa in data"
 
 #: src/commonvoice_status/window.py:229
 msgid "Export Data"
-msgstr ""
+msgstr "Exportera data"
 
 #: src/commonvoice_status/window.py:230
 msgid "Choose export format:"
-msgstr ""
+msgstr "Välj exportformat:"
 
 #: src/commonvoice_status/window.py:231
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/commonvoice_status/window.py:272
 msgid "Recorded hours"
