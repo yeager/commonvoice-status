@@ -112,7 +112,7 @@ class CommonVoiceStatusApp(Adw.Application):
             website="https://github.com/yeager/commonvoice-status",
             issue_url="https://github.com/yeager/commonvoice-status/issues",
             translate_url="https://app.transifex.com/danielnylander/commonvoice-status/",
-            translator_credits="Daniel Nylander <daniel@danielnylander.se>",
+            translator_credits=_("Translate this app: https://www.transifex.com/danielnylander/commonvoice-status/"),
             comments=_("View Mozilla Common Voice statistics per language"),
         )
         about.set_debug_info(_get_system_info())
