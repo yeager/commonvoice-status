@@ -23,18 +23,11 @@ from .i18n import init_i18n
 
 _ = gettext.gettext
 
-
-
 import json as _json
 import platform as _platform
 from pathlib import Path as _Path
 
 _NOTIFY_APP = "commonvoice-status"
-
-
-
-
-
 
 def _get_system_info():
     return "\n".join([
@@ -45,7 +38,6 @@ def _get_system_info():
         f"Python: {_platform.python_version()}",
         f"OS: {_platform.system()} {_platform.release()} ({_platform.machine()})",
     ])
-
 
 class CommonVoiceStatusApp(Adw.Application):
     def __init__(self):
@@ -111,20 +103,19 @@ class CommonVoiceStatusApp(Adw.Application):
             license_type=Gtk.License.GPL_3_0,
             website="https://github.com/yeager/commonvoice-status",
             issue_url="https://github.com/yeager/commonvoice-status/issues",
-            translate_url="https://app.transifex.com/danielnylander/commonvoice-status/",
             translator_credits=_("Translate this app: https://www.transifex.com/danielnylander/commonvoice-status/"),
             comments=_("View Mozilla Common Voice statistics per language"),
         )
         about.set_debug_info(_get_system_info())
         about.set_debug_info_filename("commonvoice-status-debug.txt")
-        about.present(self.props.active_window)
+        about.add_link(_("Help translate"), "https://app.transifex.com/danielnylander/commonvoice-status/")
 
+        about.present(self.props.active_window)
 
 def main():
     init_i18n()
     app = CommonVoiceStatusApp()
     return app.run(sys.argv)
-
 
 if __name__ == "__main__":
     sys.exit(main())
