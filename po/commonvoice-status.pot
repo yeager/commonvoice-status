@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the commonvoice-status package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: commonvoice-status\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-16 17:14+0100\n"
+"POT-Creation-Date: 2026-02-22 17:04+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,124 +17,130 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/commonvoice_status/window.py:62 src/commonvoice_status/main.py:105
+#: src/commonvoice_status/main.py:105 src/commonvoice_status/window.py:63
 msgid "Common Voice Status"
 msgstr ""
 
-#: src/commonvoice_status/window.py:78
-msgid "Refresh"
-msgstr ""
-
-#: src/commonvoice_status/window.py:83
-msgid "Export data"
-msgstr ""
-
-#: src/commonvoice_status/window.py:89
-msgid "Most validated hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:90
-msgid "Most recorded hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:91
-msgid "Most speakers"
-msgstr ""
-
-#: src/commonvoice_status/window.py:93
-msgid "Sort"
-msgstr ""
-
-#: src/commonvoice_status/window.py:105
-msgid "About"
-msgstr ""
-
-#: src/commonvoice_status/window.py:128
-msgid "Loading statistics…"
-msgstr ""
-
-#: src/commonvoice_status/window.py:134
-msgid "Failed to load data"
-msgstr ""
-
-#: src/commonvoice_status/window.py:229
-msgid "Export Data"
-msgstr ""
-
-#: src/commonvoice_status/window.py:230
-msgid "Choose export format:"
-msgstr ""
-
-#: src/commonvoice_status/window.py:231
-msgid "Cancel"
-msgstr ""
-
-#: src/commonvoice_status/window.py:272
-msgid "Recorded hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:273
-msgid "Validated hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:274
-msgid "Invalidated hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:275
-msgid "Speakers"
-msgstr ""
-
-#: src/commonvoice_status/window.py:276
-msgid "Sentences"
-msgstr ""
-
-#: src/commonvoice_status/window.py:277
-msgid "Locale"
-msgstr ""
-
-#: src/commonvoice_status/window.py:286
-msgid "Contribute recordings"
-msgstr ""
-
-#: src/commonvoice_status/window.py:302
-msgid "Gap Analysis"
-msgstr ""
-
-#: src/commonvoice_status/window.py:306
-#, python-brace-format
-msgid "Next milestone: {} hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:307
-#, python-brace-format
-msgid "{:.0f} hours remaining ({:.1f}% complete)"
-msgstr ""
-
-#: src/commonvoice_status/window.py:320
-msgid "Nordic Comparison"
-msgstr ""
-
-#: src/commonvoice_status/window.py:384
-msgid "No Nordic languages found"
-msgstr ""
-
-#: src/commonvoice_status/window.py:390
-msgid "Sorted by validated hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:391
-msgid "Sorted by recorded hours"
-msgstr ""
-
-#: src/commonvoice_status/window.py:392
-msgid "Sorted by speakers"
-msgstr ""
-
-#: src/commonvoice_status/window.py:395
-msgid "All Languages"
+#: src/commonvoice_status/main.py:115
+msgid ""
+"Translate this app: https://www.transifex.com/danielnylander/commonvoice-"
+"status/"
 msgstr ""
 
 #: src/commonvoice_status/main.py:116
 msgid "View Mozilla Common Voice statistics per language"
+msgstr ""
+
+#: src/commonvoice_status/window.py:79
+msgid "Refresh"
+msgstr ""
+
+#: src/commonvoice_status/window.py:84
+msgid "Export data"
+msgstr ""
+
+#: src/commonvoice_status/window.py:90
+msgid "Most validated hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:91
+msgid "Most recorded hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:92
+msgid "Most speakers"
+msgstr ""
+
+#: src/commonvoice_status/window.py:94
+msgid "Sort"
+msgstr ""
+
+#: src/commonvoice_status/window.py:106
+msgid "About"
+msgstr ""
+
+#: src/commonvoice_status/window.py:129
+msgid "Loading statistics…"
+msgstr ""
+
+#: src/commonvoice_status/window.py:135
+msgid "Failed to load data"
+msgstr ""
+
+#: src/commonvoice_status/window.py:230
+msgid "Export Data"
+msgstr ""
+
+#: src/commonvoice_status/window.py:231
+msgid "Choose export format:"
+msgstr ""
+
+#: src/commonvoice_status/window.py:232
+msgid "Cancel"
+msgstr ""
+
+#: src/commonvoice_status/window.py:273
+msgid "Recorded hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:274
+msgid "Validated hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:275
+msgid "Invalidated hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:276
+msgid "Speakers"
+msgstr ""
+
+#: src/commonvoice_status/window.py:277
+msgid "Sentences"
+msgstr ""
+
+#: src/commonvoice_status/window.py:278
+msgid "Locale"
+msgstr ""
+
+#: src/commonvoice_status/window.py:287
+msgid "Contribute recordings"
+msgstr ""
+
+#: src/commonvoice_status/window.py:303
+msgid "Gap Analysis"
+msgstr ""
+
+#: src/commonvoice_status/window.py:307
+#, python-brace-format
+msgid "Next milestone: {} hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:308
+#, python-brace-format
+msgid "{:.0f} hours remaining ({:.1f}% complete)"
+msgstr ""
+
+#: src/commonvoice_status/window.py:321
+msgid "Nordic Comparison"
+msgstr ""
+
+#: src/commonvoice_status/window.py:385
+msgid "No Nordic languages found"
+msgstr ""
+
+#: src/commonvoice_status/window.py:391
+msgid "Sorted by validated hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:392
+msgid "Sorted by recorded hours"
+msgstr ""
+
+#: src/commonvoice_status/window.py:393
+msgid "Sorted by speakers"
+msgstr ""
+
+#: src/commonvoice_status/window.py:396
+msgid "All Languages"
 msgstr ""
